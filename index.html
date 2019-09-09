@@ -9,25 +9,42 @@
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-    <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-4">Welcome to Hogwarts!</h1>
-            <p class="lead">Prefect’s bathroom Trelawney veela squashy armchairs, SPEW: Gamp’s Elemental Law of Transfiguration. Magic Nagini bezoar, Hippogriffs Headless Hunt giant squid petrified. Beauxbatons flying half-blood revision schedule, Great Hall aurors Minerva McGonagall Polyjuice Potion.</p>
-            <hr class="my-4">
-            <p>Restricted section the Burrow Wronski Feint gnomes, quidditch robes detention, chocolate frogs.</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Let's start sorting!</a>
+    <div id="hold-all" class="container">
+        <div id="jumbotron-holder">
+            <div class="jumbotron">
+                <h1 class="display-4">Welcome to Hogwarts!</h1>
+                <p class="lead">Prefect’s bathroom Trelawney veela squashy armchairs, SPEW: Gamp’s Elemental Law of Transfiguration. Magic Nagini bezoar, Hippogriffs Headless Hunt giant squid petrified. Beauxbatons flying half-blood revision schedule, Great Hall aurors Minerva McGonagall Polyjuice Potion.</p>
+                <hr class="my-4">
+                <p>Restricted section the Burrow Wronski Feint gnomes, quidditch robes detention, chocolate frogs.</p>
+                <button id="start-button" type="button" class="btn btn-primary mb-2">Let's start sorting!</button>
+            </div>
+        </div>
+        <div id="form-holder">
+            <!-- <div class="container">
+                <form class="form-inline card">
+                    <h3 class="col-12">Enter Student's Name</h3>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Student:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control col-sm-10" id="student-name" placeholder="Neville Chamberlain">
+                        </div>
+                        <button id="sort-button" type="button" class="btn btn-primary mb-2">Sort!</button>
+                    </div>
+                </form>
+            </div> -->
         </div>
         <div class="container">
-            <form class="form-inline card">
-                <h3 class="col-12">Enter Student's Name</h3>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Student:</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control col-sm-10" id="student-name" placeholder="Neville Chamberlain">
+            <div id="card-holder" class="row">
+                <!-- <div class="col-sm-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h3 class="card-title">Student Name</h3>
+                            <p class="card-text">house-name goes here</p>
+                            <button type="button" class="btn btn-primary">Primary</button>
+                        </div>
                     </div>
-                    <button id="sort-button" type="submit" class="btn btn-primary mb-2">Sort!</button>
-                </div>
-            </form>
+                </div> -->
+            </div>
         </div>
     </div>
 
