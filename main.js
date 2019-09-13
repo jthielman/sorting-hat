@@ -26,9 +26,8 @@ const showForm = (e) => {
 }
 
 
-const houses = ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
-
 const sort = () => {
+    const houses = ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
     return houses[Math.floor(Math.random() * 4)];
 }
 
@@ -50,17 +49,31 @@ const makeStudentCard = (name) => {
     showOnPage(cardString, 'card-holder')
 }
 
-const sortStudent = (event) => {
-    let studentName
-    if (event.target.id == 'sort-button') {
-        if (document.querySelector('input').value) {
-            studentName = document.querySelector('input').value;
-            makeStudentCard(studentName);
+const sortStudent = () => {
+    if (document.querySelector('input').value) {
+        let studentName = document.querySelector('input').value;
+        if (document.getElementById(`${studentName.replace(/ /g, '-')}`)) {
+            alert('A student by that name has already been sorted.');
         } else {
-            alert('Please enter the student\'s name.');
+            makeStudentCard(studentName);
         }
+    } else {
+        alert('Please enter the student\'s name.');
     }
     document.querySelector('input').value = '';
+}
+
+const clickSort = (event) => {
+    if (event.target.id == 'sort-button') {
+        sortStudent();
+    }
+}
+
+const pressEnter = (event) => {
+    if (event.which == 13) {
+        event.preventDefault();
+        sortStudent();
+    }
 }
 
 
@@ -73,7 +86,8 @@ const expelStudent = (event) => {
 
 const init = () => {
     document.getElementById('start-button').addEventListener('click', showForm);
-    document.querySelector('#hold-all').addEventListener('click', sortStudent)
+    document.querySelector('#hold-all').addEventListener('click', clickSort);
+    document.querySelector('#form-holder').addEventListener('keypress', pressEnter);
     document.querySelector('#card-holder').addEventListener('click', expelStudent);
 }
 
