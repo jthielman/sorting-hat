@@ -1,3 +1,22 @@
 body {
     background-color: blanchedalmond;
 }
+
+h1 {
+    font-family: 'UnifrakturCook', cursive;
+}
+
+h3 {
+    font-family: 'UnifrakturCook', cursive;
+}
+
+p, button, label, input {
+    font-family: 'UnifrakturMaguntia', cursive;
+}
+
+.form-group {
+    width: 55%;
+}
+
+/* font-family: 'UnifrakturMaguntia', cursive;
+font-family: 'UnifrakturCook', cursive; */

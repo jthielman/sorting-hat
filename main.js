@@ -1,7 +1,7 @@
 console.log('Obliviate!');
 
 const showOnPage = (toShow, divId) => {
-    document.getElementById(divId).innerHTML += toShow; // this replaces the inner html rather than adding to it
+    document.getElementById(divId).innerHTML += toShow; // this adds to the inner html rather than replacing it
 }
 
 const showForm = (e) => {
@@ -12,8 +12,8 @@ const showForm = (e) => {
             <h3 class="col-12">Enter Student's Name</h3>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Student:</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control col-sm-10" id="student-name" placeholder="Neville Chamberlain">
+                <div class="col-sm-7">
+                    <input type="text" class="form-control col-sm-12" id="student-name" placeholder="Neville Chamberlain">
                 </div>
                 <button id="sort-button" type="button" class="btn btn-primary mb-2">Sort!</button>
             </div>
@@ -25,7 +25,6 @@ const showForm = (e) => {
     }
 }
 
-document.getElementById('start-button').addEventListener('click', showForm);
 
 const houses = ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
 
@@ -51,7 +50,7 @@ const makeStudentCard = (name) => {
     showOnPage(cardString, 'card-holder')
 }
 
-document.querySelector('#hold-all').addEventListener('click', (event) => {
+const sortStudent = (event) => {
     let studentName
     if (event.target.id == 'sort-button') {
         if (document.querySelector('input').value) {
@@ -61,17 +60,21 @@ document.querySelector('#hold-all').addEventListener('click', (event) => {
             alert('Please enter the student\'s name.');
         }
     }
-    // if (event.target.id == 'sort-button') {
-    //     makeStudentCard(studentName);
-    // };
     document.querySelector('input').value = '';
-})
+}
 
-document.querySelector('#card-holder').addEventListener('click', (event) => {
-    // blah blah blah
+
+const expelStudent = (event) => {
     if (event.target.id.substring(0, 5) == 'expel') {
-        console.log(event.target.id);
         const expelled = document.getElementById(event.target.id.substring(6));
         expelled.parentNode.removeChild(expelled);
     }
-})
+}
+
+const init = () => {
+    document.getElementById('start-button').addEventListener('click', showForm);
+    document.querySelector('#hold-all').addEventListener('click', sortStudent)
+    document.querySelector('#card-holder').addEventListener('click', expelStudent);
+}
+
+init();
